@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Tasnim Kheir" />
+  <meta name="description" content="Travel site" />
+  <meta name="keywords" content="Explore, US, Mountain"/>
+  <link rel="stylesheet" href="pages/index.css">
+  <link rel="shortcut icon" href="./favicon.svg"/>
+  <link rel="preconnect" href="./vendor/fonts/Inter-4.0/">
+  <title>Around The U.S.</title>
+</head>
+
+<body class="page">
+
+
+<!--LOGO-->
+
+<header class="header">
+  <div>
+  <img src="favicon.svg" alt="logo" class="header__logo">
+  </div>
+
+  <div>
+  <img src="./images/Line.svg" alt="line" class="header__line">
+  </div>
+  </header>
+
+    <main class="content">
+
+<!--Profile-->
+
+      <section class="profile">
+        <img
+        src="./images/perfil_image.png"
+        alt="Old man picture"
+        class="profile__image">
+        <div class="profile__intro">
+          <div class="profile__container">
+            <h1 class="profile__name"> Jacques Cousteau </h1>
+            <button type="button" class="profile__edit-button">
+              <img
+              src="./images/edit__vector.svg"
+              alt="Pen">
+            </button>
+          </div>
+
+          <p class="profile__area"> Explorar </p>
+        </div>
+
+        <button type="button" class="profile__add-button">
+          <img
+          src="./images/add__button.svg"
+          alt="plus sign">
+        </button>
+      </section>
+
+      <!--To edit the profile-->
+
+      <section class="popup" id="editProfilePopup">
+        <button class="popup__close-button" type="button" id="closePopupButton">
+          <img
+          src="./images/CloseIcon.svg"
+          alt="X sign"
+          class="popup__close-icon">
+        </button>
+
+        <form class="popup__form">
+          <fieldset class="popup__fieldset">
+            <h3 class="popup__title"> Editar Perfil </h3>
+            <input
+            type="text"
+            class="popup__input"
+            id="name"
+            placeholder="Nome"
+            autocomplete="name">
+            <input
+            type="text"
+            class="popup__input"
+            id="area"
+            placeholder="Sobre mim"
+
+              />
+          </fieldset>
+
+          <button class="popup__button" type="submit">
+            Salvar
+          </button>
+        </form>
+      </section>
+
+<!--Images-->
+
+      <section class="elements">
+
+        <!--Yosemite-->
+
+      <div class="element">
+        <img
+        class="element__image"
+        src="./images/yosemite_image.png"
+        alt="Vale de Yosemite">
+        <div class="element__description">
+          <h2 class="element__title"> Vale de Yosemite </h2>
+          <img
+          class="element__icon"
+          src="./images/heart.svg"
+          alt="heart icon">
+        </div>
+      </div>
+
+      <!--Louise-->
+
+      <div class="element">
+        <img
+        class="element__image"
+        src="./images/louiseimage.png"
+        alt="lago louise">
+        <div class="element__description">
+          <h2 class="element__title"> Lago Louise </h2>
+          <img
+          class="element__icon"
+          src="./images/heart.svg"
+          alt="heart icon">
+        </div>
+      </div>
+
+      <!--Montanhas-->
+
+      <div class="element">
+        <img
+        class="element__image"
+        src="./images/montanhas__care_image.png"
+        alt="Montanhas care">
+        <div class="element__description">
+          <h2 class="element__title"> Montanhas Careeee</h2>
+          <img
+          class="element__icon"
+          src="./images/heart.svg"
+          alt="heart icon">
+        </div>
+      </div>
+
+      <!--Latemar-->
+
+      <div class="element">
+        <img
+        class="element__image"
+        src="./images/latemar_image.png"
+        alt="Latemar">
+        <div class="element__description">
+          <h2 class="element__title"> Latemar </h2>
+          <img
+          class="element__icon"
+          src="./images/heart.svg"
+          alt="heart icon">
+        </div>
+      </div>
+
+      <!--Vanoise-->
+
+      <div class="element">
+        <img
+        class="element__image"
+        src="./images/vanoise_image.png"
+        alt="Vanoise national">
+        <div class="element__description">
+          <h2 class="element__title"> Vanoise Nationalblabla </h2>
+          <img
+          class="element__icon"
+          src="./images/heart.svg"
+          alt="heart icon">
+        </div>
+      </div>
+
+      <!--Lago de Braies-->
+
+      <div class="element">
+        <img
+        class="element__image"
+        src="./images/braies_image.png"
+        alt="Lago di braies">
+        <div class="element__description">
+          <h2 class="element__title"> Lago di Braies </h2>
+          <img
+          class="element__icon"
+          src="./images/heart.svg"
+          alt="heart icon">
+        </div>
+      </div>
+      </section>
+    </main>
+
+<!--Footer-->
+
+    <footer class="footer">
+      <p class="footer__copyright"> &#169; 2024 Tasnim Kheir </p>
+    </footer>
+
+  <script src="./script/index.js"></script>
+</body>
+</html>
