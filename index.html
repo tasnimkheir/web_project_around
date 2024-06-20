@@ -1,203 +1,173 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Tasnim Kheir" />
-  <meta name="description" content="Travel site" />
-  <meta name="keywords" content="Explore, US, Mountain"/>
-  <link rel="stylesheet" href="pages/index.css">
-  <link rel="shortcut icon" href="./favicon.svg"/>
-  <link rel="preconnect" href="./vendor/fonts/Inter-4.0/">
-  <title>Around The U.S.</title>
-</head>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tasnim Kheir">
+    <meta name="description" content="Around the U.S.">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Around the United States</title>
+  </head>
 
-<body class="page">
-
-
-<!--LOGO-->
-
-<header class="header">
-  <div>
-  <img src="favicon.svg" alt="logo" class="header__logo">
-  </div>
-
-  <div>
-  <img src="./images/Line.svg" alt="line" class="header__line">
-  </div>
-  </header>
-
-    <main class="content">
-
-<!--Profile-->
-
-      <section class="profile">
+  <body>
+    <div class="page">
+      <header class="header">
         <img
-        src="./images/perfil_image.png"
-        alt="Old man picture"
-        class="profile__image">
-        <div class="profile__intro">
-          <div class="profile__container">
-            <h1 class="profile__name"> Jacques Cousteau </h1>
-            <button type="button" class="profile__edit-button">
+          src="./images/Vector.png"
+          alt="Imagem around the U.S."
+          class="header__vector"
+       >
+      </header>
+      <main class="content">
+        <section class="profile">
+          <img
+            src="./images/imagem-de-perfil.jpg"
+            alt="Imagem de perfil"
+            class="profile__avatar"
+         >
+          <div class="profile__info">
+            <div class="profile__container-text-and-button">
+              <h1 class="profile__author-name">Jacques Cousteau</h1>
               <img
-              src="./images/edit__vector.svg"
-              alt="Pen">
-            </button>
+                src="./images/Caneta.png"
+                alt="Imagem de caneta"
+                class="profile__pen-button"
+             >
+            </div>
+            <p class="profile__explore">Explorar</p>
           </div>
-
-          <p class="profile__area"> Explorar </p>
-        </div>
-
-        <button type="button" class="profile__add-button">
           <img
-          src="./images/add__button.svg"
-          alt="plus sign">
-        </button>
+            src="./images/vector-add.svg"
+            alt="botão de adicionar"
+            class="profile__add-button"
+         >
+        </section>
+
+
+        <section class="elements">
+          <div class="elements__rectangle">
+            <template class="elements__template">
+              <div class="elements__card">
+                <button class="elements__image-button">
+                  <img class="elements__image" src=" " alt="Imagem" />
+                </button>
+                <button
+                  class="elements__button elements__button_type_trash"
+                  type="button"
+                >
+                  <img
+                    class="elements__icon elements__icon_type_trash-can"
+                    src="./images/Trash.svg"
+                    alt="Botão de lixeira"
+                  />
+                </button>
+                <div class="elements__title">
+                  <h3 class="elements__text"></h3>
+                  <button
+                    class="elements__button elements__button_type_like"
+                    type="button"
+                  >
+                    <img
+                      class="elements__icon elements__icon_type_like-icon"
+                      src="./images/Coração.png"
+                      alt="Botão de curtir"
+                    />
+                  </button>
+                </div>
+                <div class="elements__window">
+                  <div class="elements__container">
+                    <button
+                      class="elements__button elements__button_type_close"
+                      type="button"
+                      id="window-close-button"
+                    >
+                      <img
+                        class="elements__icon elements__icon_type_close"
+                        src="./images/Close-icon.svg"
+                        alt="Botão de fechar"
+                      />
+                    </button>
+                    <img class="elements__window-image" src=" " alt="Imagem" />
+                    <h3 class="elements__window-name"></h3>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2024 Tasnim Kheir</p>
+      </footer>
+      <section class="popup">
+        <div class="popup__container">
+          <form class="popup__form">
+            <fieldset class="popup__container-fieldset">
+              <button type="button" class="popup__close-button">
+                <img
+                  src="./images/Close-icon.svg"
+                  alt="Botão de fechar"
+                  class="popup__close-icon"
+               >
+              </button>
+              <h2 class="popup__title">Editar perfil</h2>
+              <input
+                type="text"
+                class="popup__input"
+                placeholder="Nome"
+                id="name"
+                maxlength="120"
+                required
+             >
+              <input
+                type="text"
+                class="popup__input"
+                placeholder="Sobre mim"
+                id="about"
+                maxlength="120"
+                required
+             >
+            </fieldset>
+            <button class="popup__save-button" type="submit">Salvar</button>
+          </form>
+        </div>
       </section>
 
-      <!--To edit the profile-->
-
-      <section class="popup" id="editProfilePopup">
-        <button class="popup__close-button" type="button" id="closePopupButton">
-          <img
-          src="./images/CloseIcon.svg"
-          alt="X sign"
-          class="popup__close-icon">
-        </button>
-
-        <form class="popup__form">
-          <fieldset class="popup__fieldset">
-            <h3 class="popup__title"> Editar Perfil </h3>
-            <input
-            type="text"
-            class="popup__input"
-            id="name"
-            placeholder="Nome"
-            autocomplete="name">
-            <input
-            type="text"
-            class="popup__input"
-            id="area"
-            placeholder="Sobre mim"
-
-              />
-          </fieldset>
-
-          <button class="popup__button" type="submit">
-            Salvar
-          </button>
-        </form>
+      <section class="popup-add-card popup">
+        <div class="popup-add-card__container popup__container">
+          <form class="popup-add-card__form popup__form">
+            <fieldset class="popup-add-card__container-fieldset popup__container-fieldset">
+              <button type="button" class="popup-add-card__close-button popup__close-button">
+                <img
+                  src="./images/Close-icon.svg"
+                  alt="Botão de fechar"
+                  class="popup-add-card__close-icon popup__close-icon"
+               >
+              </button>
+              <h2 class="popup-add-card__title popup__title">Novo local</h2>
+              <input
+                type="text"
+                class="popup-add-card__input popup__input"
+                placeholder="Título"
+                id="title"
+                maxlength="120"
+                required
+             >
+              <input
+                type="url"
+                class="popup-add-card__input popup__input"
+                placeholder="Link de imagem"
+                id="link-input"
+                maxlength="120"
+                required
+             >
+            </fieldset>
+            <button class="popup-add-card__create-button popup__save-button" type="submit">Criar</button>
+          </form>
+        </div>
       </section>
-
-<!--Images-->
-
-      <section class="elements">
-
-        <!--Yosemite-->
-
-      <div class="element">
-        <img
-        class="element__image"
-        src="./images/yosemite_image.png"
-        alt="Vale de Yosemite">
-        <div class="element__description">
-          <h2 class="element__title"> Vale de Yosemite </h2>
-          <img
-          class="element__icon"
-          src="./images/heart.svg"
-          alt="heart icon">
-        </div>
-      </div>
-
-      <!--Louise-->
-
-      <div class="element">
-        <img
-        class="element__image"
-        src="./images/louiseimage.png"
-        alt="lago louise">
-        <div class="element__description">
-          <h2 class="element__title"> Lago Louise </h2>
-          <img
-          class="element__icon"
-          src="./images/heart.svg"
-          alt="heart icon">
-        </div>
-      </div>
-
-      <!--Montanhas-->
-
-      <div class="element">
-        <img
-        class="element__image"
-        src="./images/montanhas__care_image.png"
-        alt="Montanhas care">
-        <div class="element__description">
-          <h2 class="element__title"> Montanhas Careeee</h2>
-          <img
-          class="element__icon"
-          src="./images/heart.svg"
-          alt="heart icon">
-        </div>
-      </div>
-
-      <!--Latemar-->
-
-      <div class="element">
-        <img
-        class="element__image"
-        src="./images/latemar_image.png"
-        alt="Latemar">
-        <div class="element__description">
-          <h2 class="element__title"> Latemar </h2>
-          <img
-          class="element__icon"
-          src="./images/heart.svg"
-          alt="heart icon">
-        </div>
-      </div>
-
-      <!--Vanoise-->
-
-      <div class="element">
-        <img
-        class="element__image"
-        src="./images/vanoise_image.png"
-        alt="Vanoise national">
-        <div class="element__description">
-          <h2 class="element__title"> Vanoise Nationalblabla </h2>
-          <img
-          class="element__icon"
-          src="./images/heart.svg"
-          alt="heart icon">
-        </div>
-      </div>
-
-      <!--Lago de Braies-->
-
-      <div class="element">
-        <img
-        class="element__image"
-        src="./images/braies_image.png"
-        alt="Lago di braies">
-        <div class="element__description">
-          <h2 class="element__title"> Lago di Braies </h2>
-          <img
-          class="element__icon"
-          src="./images/heart.svg"
-          alt="heart icon">
-        </div>
-      </div>
-      </section>
-    </main>
-
-<!--Footer-->
-
-    <footer class="footer">
-      <p class="footer__copyright"> &#169; 2024 Tasnim Kheir </p>
-    </footer>
-
-  <script src="./script/index.js"></script>
-</body>
+      <script src="./script/index.js"></script>
+    </div>
+  </body>
 </html>
