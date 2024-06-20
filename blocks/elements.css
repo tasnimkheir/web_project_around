@@ -179,10 +179,12 @@
   .elements__rectangle {
     max-width: 282px;
     display: block;
+    margin-bottom: 50px;
   }
 
   .elements__card {
     margin-top: 21px;
+    margin-bottom: 50px
   }
 
   .elements__button_type_close {

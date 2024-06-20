@@ -17,8 +17,9 @@ function closePopUp() {
   popup.classList.remove("popup__opened");
 }
 
+
 function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
+  evt.preventDefault(); 
 
   let nameInput = document.querySelector("#name").value;
   let aboutInput = document.querySelector("#about").value;
@@ -42,6 +43,7 @@ const addCardButton = document.querySelector(".profile__add-button");
 const saveCardButton = document.querySelector(".popup-add-card__create-button");
 const closeCardButton = document.querySelector(".popup-add-card__close-icon");
 const formCardElement = document.querySelector(".popup-add-card__form");
+
 
 function openCardPopUp() {
   let popup = document.querySelector(".popup-add-card");
@@ -69,6 +71,7 @@ closeCardButton.addEventListener("click", closeCardPopUp);
 formCardElement.addEventListener("submit", handleCardFormSubmit);
 
 //Cards
+
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -96,12 +99,12 @@ const initialCards = [
   },
 ];
 
-const template = document.querySelector(".elements__template");
+const template = document.querySelector(".elements__template"); 
 const cardArea = document.querySelector(".elements__rectangle");
 
 function createCard(name, link) {
   const card = template
-    .cloneNode(true)
+    .cloneNode(true) 
     .content.querySelector(".elements__card");
   const cardImage = card.querySelector(".elements__image");
   const cardText = card.querySelector(".elements__text");
@@ -125,11 +128,11 @@ function createCard(name, link) {
   });
 
   cardLikeButton.addEventListener("click", function () {
-    cardLikeButton.classList.add("elements__button_type_like-active");
+    cardLikeButton.classList.toggle("elements__button_type_like-active");
   });
 
   buttonCardImage.addEventListener("click", function () {
-    cardWindow.classList.toggle("elements__window_opened");
+    cardWindow.classList.add("elements__window_opened"); 
   });
 
   windowCloseButton.addEventListener("click", function () {
@@ -141,7 +144,7 @@ function createCard(name, link) {
 
 initialCards.forEach(function (element) {
   const firstcards = createCard(element.name, element.link);
-  cardArea.append(firstcards);
+  cardArea.append(firstcards); 
 });
 
 const formAddCard = document.querySelector(".popup-add-card__form");
