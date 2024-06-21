@@ -6,13 +6,13 @@ const closeButton = document.querySelector(".popup__close-button");
 const formElement = document.querySelector(".popup__form");
 
 function openPopUp() {
-  let popup = document.querySelector(".popup");
+  const popup = document.querySelector(".popup");
 
   popup.classList.add("popup__opened");
 }
 
 function closePopUp() {
-  let popup = document.querySelector(".popup");
+  const popup = document.querySelector(".popup");
 
   popup.classList.remove("popup__opened");
 }
@@ -21,11 +21,11 @@ function closePopUp() {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault(); 
 
-  let nameInput = document.querySelector("#name").value;
-  let aboutInput = document.querySelector("#about").value;
+  const nameInput = document.querySelector("#name").value;
+  const aboutInput = document.querySelector("#about").value;
 
-  let userName = document.querySelector(".profile__author-name");
-  let userAbout = document.querySelector(".profile__explore");
+  const userName = document.querySelector(".profile__author-name");
+  const userAbout = document.querySelector(".profile__explore");
 
   userName.textContent = nameInput;
   userAbout.textContent = aboutInput;
@@ -46,13 +46,13 @@ const formCardElement = document.querySelector(".popup-add-card__form");
 
 
 function openCardPopUp() {
-  let popup = document.querySelector(".popup-add-card");
+  const popup = document.querySelector(".popup-add-card");
 
   popup.classList.add("popup__opened");
 }
 
 function closeCardPopUp() {
-  let popup = document.querySelector(".popup-add-card");
+  const popup = document.querySelector(".popup-add-card");
 
   popup.classList.remove("popup__opened");
 }
@@ -60,8 +60,8 @@ function closeCardPopUp() {
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
 
-  let titleInput = document.querySelector("#title").value;
-  let linkInput = document.querySelector("#link-input").value;
+  const titleInput = document.querySelector("#title").value;
+  const linkInput = document.querySelector("#link-input").value;
 
   closePopUp();
 }
