@@ -2,7 +2,7 @@
 
 Bem-vindo à Rede Social para Postar e Curtir Fotos! Este projeto é uma aplicação web simples que permite aos usuários postar fotos, curtir e visualizar uma galeria de imagens. 
 
-É construído usando HTML, CSS e JavaScript.
+É construído usando HTML, CSS, JavaScript e Webpack.
 
 - Funcionalidades:
 
