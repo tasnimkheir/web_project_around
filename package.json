@@ -1,21 +1,22 @@
 {
   "name": "web_project_around",
-  "version": "0.0.1",
-  "description": "Educational platform",
+  "version": "1.0.0",
+  "description": "Tripleten web_project_around Projeto do sprint 9, continução do sprint 7,8, 9 e agora 10 onde desenvolvi uma pagina tipo de rede social, com um formulário e utilizo JavaScript para interligar cada botão em suas devidas funções. link para o site: https://guiarroyo.github.io/web_project_around/",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
   },
-  "author": "Gabriella Almeida",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.25.3",
-    "autoprefixer": "^10.4.19",
+    "autoprefixer": "^10.4.20",
     "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
-    "cssnano": "^7.0.4",
-    "file-loader": "^6.2.0",
+    "cssnano": "^7.0.5",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss-loader": "^8.1.1",
@@ -24,7 +25,7 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "clean-webpack-plugin": "^4.0.0",
-    "core-js": "^3.37.1"
+    "core-js": "^3.38.0",
+    "jquery": "^3.7.1"
   }
 }

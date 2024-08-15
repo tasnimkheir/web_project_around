@@ -1,155 +1,127 @@
-import "./pages/index.css";
-import Card from "./components/Card.js";
-import FormValidator from "./components/FormValidator.js";
-import Section from "./components/Section.js";
-import PopupWhitForm from "./components/PopupWithForm.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import UserInfo from "./components/UserInfo.js";
-import PopupWithImage from "./components/PopupWithImage";
+import { Card } from "./script/card.js";
+import { FormValidator } from "./script/FormValidator.js";
+import { openPopup, closePopup } from "./script/utils.js";
+import './pages/index.css'
 
-const popup = document.querySelector(".popup");
-popup.addEventListener("click", (event) => {
-  if (event.target.classList.contains("overlay")) {
-    popup.classList.remove("popup__open");
-  }
-});
+// DOM Elements
+const editButton = document.querySelector(".profile__edit-button");
+const miPopup = document.querySelector(".popup");
+const closeButton = document.querySelector(".popup__button-closed");
+const nameInput = document.querySelector(".popup__name");
+const jobInput = document.querySelector(".popup__description");
+const saveButton = document.querySelector(".popup__button-create");
+const profileText = document.querySelector(".profile__text");
+const profileProfession = document.querySelector(".profile__profession");
+const templateSelector = ".template-card";
+const cardZone = document.querySelector(".elements");
+const buttonAddCard = document.querySelector(".profile__add-button");
+const cardPopup = document.querySelector("#popup-card");
+const formCardPopup = document.querySelector(".popup__card-form");
+const inputCardTitle = document.querySelector(".popup__card-title");
+const inputUrl = document.querySelector(".popup__card-url");
+const buttonCloseAddCard = document.querySelector(".popup__card-button-closed");
+const popupImage = document.querySelector("#popup-image");
+const buttonClosePopupImage = document.querySelector(
+  ".popup__image-button-closed"
+);
 
-const edtButton = document.querySelector(".profile__edit-button");
-
-const popupAdd = document.querySelector(".popup-add");
-popupAdd.addEventListener("click", (event) => {
-  if (event.target.classList.contains("overlay")) {
-    popupAdd.classList.remove("popup__open");
-  }
-});
-
-const addButton = document.querySelector(".profile__add-button");
-
-const popupImage = document.querySelector(".popup-image");
-popupImage.addEventListener("click", (event) => {
-  if (event.target.classList.contains("overlay")) {
-    popupImage.classList.remove("popup__open");
-  }
-});
-
+// Dados iniciais dos cartões
 const initialCards = [
   {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
   },
   {
     name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
   },
   {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
   },
   {
     name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
   },
   {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
   },
   {
     name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
 
-const popupWithImage = new PopupWithImage(".popup-image");
-const handleCardClick = (link, title) => {
-  popupWithImage.open(link, title);
-};
+// Funções
+function openImagePopup(link, name) {
+  openPopup(popupImage);
+  const popupPhoto = popupImage.querySelector(".popup__image-photo");
+  const popupTitle = popupImage.querySelector(".popup__image-name");
 
-popupWithImage.setEventListeners();
+  popupPhoto.src = link;
+  popupTitle.textContent = name;
+  popupPhoto.alt = name;
+}
 
-initialCards.forEach((card) => {
-  const cardElement = new Card(
-    card.name,
-    card.link,
-    "#cards",
-    handleCardClick
-  ).generateCard();
-  const section = new Section(
-    {
-      items: [cardElement],
-      renderer: (cardParams) => {
-        section.addItem(cardParams);
-      },
-    },
-    ".elements"
+function saveChanges() {
+  profileText.textContent = nameInput.value;
+  profileProfession.textContent = jobInput.value;
+
+  closePopup(miPopup);
+}
+
+// Adiciona os eventos
+editButton.addEventListener("click", () => openPopup(miPopup));
+closeButton.addEventListener("click", () => closePopup(miPopup));
+saveButton.addEventListener("click", saveChanges);
+buttonAddCard.addEventListener("click", () => openPopup(cardPopup));
+buttonCloseAddCard.addEventListener("click", () => closePopup(cardPopup));
+buttonClosePopupImage.addEventListener("click", () => closePopup(popupImage));
+
+formCardPopup.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  const card = new Card(
+    inputCardTitle.value,
+    inputUrl.value,
+    templateSelector,
+    openImagePopup
   );
-  section.renderer();
+  cardZone.prepend(card.generateCard());
+  closePopup(cardPopup);
 });
 
-const userInfo = new UserInfo({
-  userName: ".profile__title",
-  userJob: ".profile__explorar",
+// Adiciona os cartões iniciais
+initialCards.forEach((item) => {
+  const card = new Card(item.name, item.link, templateSelector, openImagePopup);
+  cardZone.append(card.generateCard());
 });
-const handleSubmitProfileForm = ({ name, about }) => {
-  userInfo.setUserInfo({ name, job: about });
+
+// Configurações de validação
+const validationSettings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error-visible",
 };
 
-const popupEditProfile = new PopupWhitForm(
-  handleSubmitProfileForm,
-  ".popup-edit-profile"
+// Habilita a validação
+const forms = Array.from(
+  document.querySelectorAll(validationSettings.formSelector)
 );
-popupEditProfile.setEventListeners();
-
-edtButton.addEventListener("click", () => {
-  popupEditProfile.open();
+forms.forEach((form) => {
+  const formValidator = new FormValidator(validationSettings, form);
+  formValidator.enableValidation();
 });
 
-const handleAddCard = ({ title, link }) => {
-  const cardElement = new Card(
-    title,
-    link,
-    "#cards",
-    handleCardClick
-  ).generateCard();
-  const section = new Section(
-    {
-      items: [cardElement],
-      renderer: (card) => {
-        section.addOneItem(card);
-      },
-    },
-    ".elements"
-  );
-  section.renderer();
-};
-
-const popupAddCard = new PopupWithForm(handleAddCard, ".popup-add");
-
-popupAddCard.setEventListeners();
-
-addButton.addEventListener("click", () => {
-  popupAdd.classList.add("popup__open");
+// Evento de clique no overlay do popup
+const popupOverlay = document.querySelectorAll(".popup__overlay");
+popupOverlay.forEach((overlay) => {
+  overlay.addEventListener("click", () => {
+    closePopup(overlay.parentNode);
+  });
 });
 
-document.onkeydown = function (event) {
-  if (event.key === "Escape") {
-    popup.classList.remove("popup__open");
-    popupAdd.classList.remove("popup__open");
-    popupImage.classList.remove("popup__open");
-  }
-};
-
-const formElement = document.querySelector(".popup__form-title");
-const formElementAdd = document.querySelector(".popup__add-card-form");
-const config = {
-  form: ".popup__form-title",
-  input: ".popup__form-input",
-  submitButton: ".button",
-  buttonDisabledClass: "button__disabled",
-  errorClass: "popup__span-error",
-  inputErrorClass: "popup__form-input-invalid",
-};
-
-const formValidatorProfile = new FormValidator(config, formElement);
-const formValidatorAdd = new FormValidator(config, formElementAdd);
-formValidatorProfile.enableValidation();
-formValidatorAdd.enableValidation();
+let someStr = "Eu programei. Eu salvei. Eu empacotei.";

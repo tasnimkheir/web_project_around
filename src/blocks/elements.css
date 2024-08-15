@@ -1,98 +1,98 @@
 .elements {
-  max-width: 880px;
-  min-height: 741.99px;
+  max-width: 882px;
+  margin: 0 auto;
+  padding: 50px 0 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 20px 17px;
-}
-.elements__item {
-  width: 282px;
-  height: 361px;
-  background-color: #fff;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  border-radius: 10px;
-}
-.elements__image {
-  width: 282px;
-  height: 282px;
-  border-radius: 10px 10px 0px 0px;
-  z-index: 1;
-}
-.elements__imagem_trash {
-  border-top: 18px;
-  border-left: 249px;
-  width: 18px;
-  z-index: 3;
-  margin: 0;
-}
-.elements__title {
-  width: 246px;
-  font-family: Inter;
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 29.05px;
-  text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  flex-direction: row;
+  gap: 15px;
 }
 
-.elements__heart {
+.elements__content {
+  padding: 0;
+  margin: 0;
+}
+
+.elements__card {
+  max-width: 282px;
+  height: 361px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.elements__image {
+  max-width: 282px;
+  max-height: 282px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.elements__image-trash {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.elements__image-trash:hover {
+  opacity: 50%;
+}
+
+.elements__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0px;
+  background-color: #ffffff;
+  max-height: 79px;
+}
+
+.elements__title {
+  font-size: 24px;
+  line-height: 29.05px;
+  font-weight: 900;
+  background-color: #ffffff;
+  height: 79px;
+  margin: 0;
+  align-content: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.elements__image-like {
   cursor: pointer;
   align-self: center;
 }
 
-.elements__heart-black {
-  display: none;
+.elements__image-like:hover {
+  opacity: 50%;
 }
 
-.elements__content {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 21px;
-  margin-right: 15px;
-}
-.elements__trash-button {
-  width: 18px;
-  background: none;
-  border: none;
-  position: absolute;
-  margin-top: 18px;
-  margin-left: 249px;
-}
-.elements__trash-button:hover {
-  cursor: pointer;
-  opacity: 0.7;
+.elements__image-like_active {
+  background-image: url(../images/Union.png);
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 900px) {
   .elements {
-    width: 100%;
-    min-height: 1122.98px;
+    margin: 0 15px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .elements {
     grid-template-columns: repeat(2, 282px);
     justify-content: center;
   }
 }
 
-@media (max-width: 720px) {
+@media screen and (max-width: 590px) {
   .elements {
     display: grid;
-    grid-template-areas:
-      "img"
-      "text"
-      "button";
-    width: 282px;
-    min-height: 2266px;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    margin-top: 42px;
-    margin-bottom: 0;
-    grid-gap: 20px;
-    margin-left: 19px;
-    margin-right: 19px;
+    grid-template-columns: auto;
+    justify-content: center;
   }
 }
