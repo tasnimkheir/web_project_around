@@ -1,3 +1,4 @@
+// webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -36,14 +37,15 @@ module.exports = {
       },
       {
         // adicione a regra para processar arquivos
-        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|ico|gif|woff(2)?|eot|ttf|otf)$/,
         type: "asset/resource"
       },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./src/index.html",
+      favicon: "./src/favicon.ico"
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin()
