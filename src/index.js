@@ -74,7 +74,6 @@ api.getUserInfo().then((result) => {
 
 // Add cards logic
 const popupAddCard = new PopupWithForm("#popup-add", (input) => {
-  console.log(input);
   if (input.link){
     api.addcards(input).then((result) => {
       const newCard = new Card(

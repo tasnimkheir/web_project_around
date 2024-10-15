@@ -32,7 +32,7 @@ export default class PopupWithForm extends Popup {
   close() {
     super.close();
     this.toggleTextButton();
-    
+
   }
   toggleTextButton(){
     const textButton = this._popupSelector.querySelector(".popup__button");
@@ -56,8 +56,8 @@ export default class PopupWithForm extends Popup {
         this.toggleTextButton();
         this._handleSubmit(this.getInputValues());
         this.close();
-       
-      
+
+
     });
   }
 }
