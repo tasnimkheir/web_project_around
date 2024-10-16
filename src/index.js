@@ -79,7 +79,7 @@ const popupAddCard = new PopupWithForm("#popup-add", (input) => {
       const newCard = new Card(
         result,
         () => {
-          popupPicture.handleCardClick(item.name, item.link);
+          popupPicture.handleCardClick(result.name, result.link);
         },
 
         userInfo._userId,
