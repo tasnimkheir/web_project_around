@@ -47,7 +47,18 @@ export default class PopupWithForm extends Popup {
       texttoggle = "Criar";
     }
     textButton.textContent = texttoggle;
+
   }
+
+  open(){
+    super.open();
+    const textButton = this._popupSelector.querySelector(".popup__button");
+    if (textButton.textContent.trim() === 'Criando...'){
+      textButton.textContent = 'Criar';
+    }
+  }
+
+
   setEventListeners() {
     super.setEventListeners();
     const form = this._popupSelector.querySelector("form");

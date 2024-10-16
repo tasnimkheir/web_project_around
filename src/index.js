@@ -144,7 +144,7 @@ popupWithConfirmation.setEventListeners();
 btnEdit.addEventListener("click", function () {
   popupProfile1.open();
   popupProfile1.getUserInfo;
-  validateForm1.enableValidation();
+  validateFormCard.enableValidation();
 
 });
 // Eventlistener of avatar button
@@ -159,7 +159,7 @@ btnAdd.addEventListener("click", function () {
 
 
 //Validation of forms
-const validateForm1 = new FormValidator(formElements, {
+const validateFormCard = new FormValidator(formElements, {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -167,7 +167,7 @@ const validateForm1 = new FormValidator(formElements, {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 });
-const validateForm2 = new FormValidator(formProfile, {
+const validateFormProfile = new FormValidator(formProfile, {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -183,6 +183,6 @@ const avatarFormValidation = new FormValidator(formAvatar, {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 });
-validateForm1.enableValidation();
-validateForm2.enableValidation();
+validateFormCard.enableValidation();
+validateFormProfile.enableValidation();
 avatarFormValidation.enableValidation();
