@@ -64,7 +64,7 @@ export function closeAll() {
   popUpAdd.classList.remove("popup__show");
   popupImg.classList.remove("popup__show");
   document.removeEventListener("keydown", handleEsc);
-  
+
   inputSelector.forEach(function (el) {
     el.classList.remove("popup__error_visible");
     el.classList.remove("popup__input_type_error");
@@ -74,7 +74,6 @@ export function closeAll() {
 export function handleEsc(evt) {
   if (evt.key === "Escape") {
     closeAll();
-    console.log("Foi pressionado ESC");
   }
 }
 export function saveChanges(evt) {
